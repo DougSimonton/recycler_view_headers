@@ -42,20 +42,12 @@ public class MainActivity extends AppCompatActivity {
         return new RecyclerSectionItemDecoration.SectionCallback() {
             @Override
             public boolean isSection(int position) {
-                return position == 0
-                    || people.get(position)
-                             .getLastName()
-                             .charAt(0) != people.get(position - 1)
-                                                 .getLastName()
-                                                 .charAt(0);
+                return position == 1;
             }
 
             @Override
             public CharSequence getSectionHeader(int position) {
-                return people.get(position)
-                             .getLastName()
-                             .subSequence(0,
-                                          1);
+                return "This is the header";
             }
         };
     }

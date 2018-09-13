@@ -58,14 +58,15 @@ public class RecyclerSectionItemDecoration extends RecyclerView.ItemDecoration {
         for (int i = 0; i < parent.getChildCount(); i++) {
             View child = parent.getChildAt(i);
             final int position = parent.getChildAdapterPosition(child);
-
-            CharSequence title = sectionCallback.getSectionHeader(position);
-            header.setText(title);
-            if (!previousHeader.equals(title) || sectionCallback.isSection(position)) {
-                drawHeader(c,
-                           child,
-                           headerView);
-                previousHeader = title;
+            if (position >= 1)
+            {
+                CharSequence title = sectionCallback.getSectionHeader(position);
+                header.setText(title);
+                if (!previousHeader.equals(title) || sectionCallback.isSection(position))
+                {
+                    drawHeader(c, child, headerView);
+                    previousHeader = title;
+                }
             }
         }
     }
